@@ -1,0 +1,239 @@
+/* Tema Arrachis - Sistema de colores para marketplace de frutos secos */
+
+@layer base {
+
+    /* Light Mode (default) */
+    :root[data-theme="arrachis"] {
+        /* Colores principales - Usando HSL para compatibilidad con Tailwind */
+        --primary: 43 93% 47%;
+        /* #E3A30A - Dorado */
+        --primary-foreground: 0 0% 100%;
+        /* Blanco para contraste */
+
+        --secondary: 22 48% 31%;
+        /* #6C3D24 - Café */
+        --secondary-foreground: 0 0% 100%;
+        /* Blanco */
+
+        --accent: 40 53% 82%;
+        /* #E8DEB5 - Crema */
+        --accent-foreground: 22 48% 31%;
+        /* Café para contraste */
+
+        /* Fondos y superficies */
+        --background: 0 0% 100%;
+        /* Blanco puro */
+        --foreground: 198 7% 8%;
+        /* #0E1415 - Casi negro */
+
+        --card: 0 0% 100%;
+        /* Blanco para cards */
+        --card-foreground: 198 7% 8%;
+        /* Texto oscuro */
+
+        --popover: 0 0% 100%;
+        /* Blanco para popovers */
+        --popover-foreground: 198 7% 8%;
+        /* Texto oscuro */
+
+        /* Estados y utilidades */
+        --muted: 40 53% 95%;
+        /* Crema muy claro */
+        --muted-foreground: 22 48% 40%;
+        /* Café medio */
+
+        --border: 40 30% 90%;
+        /* Borde crema suave */
+        --input: 40 30% 95%;
+        /* Fondo de inputs */
+        --ring: 43 93% 47%;
+        /* Focus ring dorado */
+
+        /* Estados semánticos */
+        --destructive: 0 84% 60%;
+        /* Rojo error */
+        --destructive-foreground: 0 0% 98%;
+        /* Blanco */
+
+        --warning: 38 92% 50%;
+        /* Naranja advertencia */
+        --warning-foreground: 0 0% 98%;
+        /* Blanco */
+
+        --success: 142 76% 36%;
+        /* Verde éxito */
+        --success-foreground: 0 0% 98%;
+        /* Blanco */
+
+        --info: 199 89% 48%;
+        /* Azul información */
+        --info-foreground: 0 0% 98%;
+        /* Blanco */
+
+        /* Otros tokens */
+        --radius: 0.5rem;
+        /* Radio de bordes */
+        --chart-1: 43 93% 47%;
+        /* Gráficos - dorado */
+        --chart-2: 22 48% 31%;
+        /* Gráficos - café */
+        --chart-3: 40 53% 82%;
+        /* Gráficos - crema */
+        --chart-4: 198 7% 40%;
+        /* Gráficos - gris oscuro */
+        --chart-5: 43 93% 60%;
+        /* Gráficos - dorado claro */
+    }
+
+    /* Dark Mode */
+    :root[data-theme="arrachis"].dark {
+        /* Colores principales */
+        --primary: 43 93% 47%;
+        /* Dorado se mantiene */
+        --primary-foreground: 198 7% 8%;
+        /* Texto oscuro sobre dorado */
+
+        --secondary: 40 53% 82%;
+        /* Crema en dark mode */
+        --secondary-foreground: 22 48% 20%;
+        /* Café oscuro */
+
+        --accent: 22 48% 41%;
+        /* Café más claro */
+        --accent-foreground: 40 53% 90%;
+        /* Crema claro */
+
+        /* Fondos y superficies - Invertidos */
+        --background: 198 7% 8%;
+        /* #0E1415 - Fondo oscuro */
+        --foreground: 40 53% 95%;
+        /* Crema muy claro para texto */
+
+        --card: 198 7% 12%;
+        /* Ligeramente más claro que bg */
+        --card-foreground: 40 53% 95%;
+        /* Texto crema */
+
+        --popover: 198 7% 12%;
+        /* Como card */
+        --popover-foreground: 40 53% 95%;
+        /* Texto crema */
+
+        /* Estados y utilidades */
+        --muted: 198 7% 18%;
+        /* Gris oscuro */
+        --muted-foreground: 40 30% 70%;
+        /* Crema apagado */
+
+        --border: 198 7% 25%;
+        /* Borde sutil oscuro */
+        --input: 198 7% 18%;
+        /* Fondo de inputs oscuro */
+        --ring: 43 93% 47%;
+        /* Focus ring dorado */
+
+        /* Estados semánticos - más brillantes en dark */
+        --destructive: 0 72% 50%;
+        /* Rojo más apagado */
+        --destructive-foreground: 0 0% 98%;
+
+        --warning: 38 82% 45%;
+        /* Naranja más apagado */
+        --warning-foreground: 0 0% 98%;
+
+        --success: 142 66% 32%;
+        /* Verde más apagado */
+        --success-foreground: 0 0% 98%;
+
+        --info: 199 79% 43%;
+        /* Azul más apagado */
+        --info-foreground: 0 0% 98%;
+
+        /* Charts en dark mode */
+        --chart-1: 43 93% 57%;
+        /* Dorado más brillante */
+        --chart-2: 40 53% 72%;
+        /* Crema medio */
+        --chart-3: 22 48% 41%;
+        /* Café medio */
+        --chart-4: 198 7% 50%;
+        /* Gris medio */
+        --chart-5: 43 73% 67%;
+        /* Dorado pastel */
+    }
+
+    /* Utilidades específicas de Arrachis */
+    [data-theme="arrachis"] {
+        /* Gradientes de marca */
+        --gradient-gold: linear-gradient(135deg, hsl(43 93% 47%), hsl(43 93% 37%));
+        --gradient-warm: linear-gradient(135deg, hsl(43 93% 47%), hsl(22 48% 31%));
+        --gradient-soft: linear-gradient(135deg, hsl(40 53% 82%), hsl(40 53% 92%));
+
+        /* Sombras personalizadas */
+        --shadow-gold: 0 4px 14px 0 rgba(227, 163, 10, 0.25);
+        --shadow-brown: 0 4px 14px 0 rgba(108, 61, 36, 0.25);
+    }
+}
+
+/* Clases de utilidad específicas del tema */
+@layer utilities {
+    [data-theme="arrachis"] {
+        .bg-gradient-gold {
+            background: var(--gradient-gold);
+        }
+
+        .bg-gradient-warm {
+            background: var(--gradient-warm);
+        }
+
+        .bg-gradient-soft {
+            background: var(--gradient-soft);
+        }
+
+        .shadow-gold {
+            box-shadow: var(--shadow-gold);
+        }
+
+        .shadow-brown {
+            box-shadow: var(--shadow-brown);
+        }
+
+        /* Animaciones de marca */
+        .animate-shimmer-gold {
+            animation: shimmer-gold 2s linear infinite;
+        }
+    }
+}
+
+@keyframes shimmer-gold {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+/* Ajustes tipográficos para Arrachis */
+[data-theme="arrachis"] {
+    font-family: 'Inter', system-ui, sans-serif;
+
+    /* Peso de fuente ligeramente mayor para mejor legibilidad */
+    --font-weight-normal: 450;
+    --font-weight-medium: 550;
+    --font-weight-semibold: 650;
+    --font-weight-bold: 750;
+}
+
+/* Print styles para Arrachis */
+@media print {
+    [data-theme="arrachis"] {
+        --primary: 0 0% 0%;
+        /* Negro para impresión */
+        --background: 0 0% 100%;
+        /* Fondo blanco */
+        --foreground: 0 0% 0%;
+        /* Texto negro */
+    }
+}
