@@ -15,6 +15,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        heading: ['Merienda', 'system-ui', 'sans-serif'],
+        sans: ['Nunito', 'Inter', 'system-ui', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

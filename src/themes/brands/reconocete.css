@@ -1,0 +1,259 @@
+/* Tema Reconócete - Sistema de colores y tipografías para plataforma de autoconocimiento */
+
+@layer base {
+
+    /* Light Mode (default) */
+    :root[data-theme="reconocete"] {
+        /* Colores principales - Usando HSL para compatibilidad con Tailwind */
+        --primary: 318 27% 52%;
+        /* #A06E8E - Mauve */
+        --primary-foreground: 0 0% 100%;
+        /* Blanco para contraste */
+
+        --secondary: 321 26% 46%;
+        /* #8F5F7D - Plum */
+        --secondary-foreground: 0 0% 100%;
+        /* Blanco */
+
+        --accent: 319 30% 69%;
+        /* #C7A3B9 - Mauve Light */
+        --accent-foreground: 321 26% 30%;
+        /* Plum oscuro para contraste */
+
+        /* Fondos y superficies */
+        --background: 0 0% 100%;
+        /* Blanco puro */
+        --foreground: 0 0% 12%;
+        /* #1E1E1E - Carbon */
+
+        --card: 240 7% 97%;
+        /* #F5F5F7 - Smoke */
+        --card-foreground: 0 0% 12%;
+        /* Carbon para texto */
+
+        --popover: 0 0% 100%;
+        /* Blanco para popovers */
+        --popover-foreground: 0 0% 12%;
+        /* Carbon */
+
+        /* Estados y utilidades */
+        --muted: 240 7% 96%;
+        /* Smoke más claro */
+        --muted-foreground: 318 27% 45%;
+        /* Mauve más oscuro */
+
+        --border: 319 30% 85%;
+        /* Mauve Light suave */
+        --input: 240 7% 97%;
+        /* Smoke para inputs */
+        --ring: 318 27% 52%;
+        /* Focus ring mauve */
+
+        /* Estados semánticos */
+        --destructive: 0 84% 60%;
+        /* Rojo error */
+        --destructive-foreground: 0 0% 98%;
+        /* Blanco */
+
+        --warning: 38 92% 50%;
+        /* Naranja advertencia */
+        --warning-foreground: 0 0% 98%;
+        /* Blanco */
+
+        --success: 142 76% 36%;
+        /* Verde éxito */
+        --success-foreground: 0 0% 98%;
+        /* Blanco */
+
+        --info: 199 89% 48%;
+        /* Azul información */
+        --info-foreground: 0 0% 98%;
+        /* Blanco */
+
+        /* Otros tokens */
+        --radius: 0.75rem;
+        /* Radio de bordes más redondeado */
+        --chart-1: 318 27% 52%;
+        /* Gráficos - mauve */
+        --chart-2: 321 26% 46%;
+        /* Gráficos - plum */
+        --chart-3: 319 30% 69%;
+        /* Gráficos - mauve light */
+        --chart-4: 0 0% 30%;
+        /* Gráficos - gris oscuro */
+        --chart-5: 318 27% 65%;
+        /* Gráficos - mauve claro */
+    }
+
+    /* Dark Mode */
+    :root[data-theme="reconocete"].dark {
+        /* Colores principales */
+        --primary: 318 27% 52%;
+        /* Mauve se mantiene */
+        --primary-foreground: 0 0% 100%;
+        /* Blanco */
+
+        --secondary: 319 30% 69%;
+        /* Mauve Light en dark mode */
+        --secondary-foreground: 0 0% 12%;
+        /* Carbon oscuro */
+
+        --accent: 321 26% 46%;
+        /* Plum en dark mode */
+        --accent-foreground: 319 30% 85%;
+        /* Mauve light suave */
+
+        /* Fondos y superficies - Invertidos */
+        --background: 0 0% 12%;
+        /* #1E1E1E - Carbon como fondo */
+        --foreground: 240 7% 97%;
+        /* Smoke como texto */
+
+        --card: 0 0% 16%;
+        /* Ligeramente más claro que bg */
+        --card-foreground: 240 7% 97%;
+        /* Texto smoke */
+
+        --popover: 0 0% 16%;
+        /* Como card */
+        --popover-foreground: 240 7% 97%;
+        /* Texto smoke */
+
+        /* Estados y utilidades */
+        --muted: 0 0% 22%;
+        /* Gris oscuro */
+        --muted-foreground: 319 20% 75%;
+        /* Mauve apagado */
+
+        --border: 0 0% 28%;
+        /* Borde sutil oscuro */
+        --input: 0 0% 22%;
+        /* Fondo de inputs oscuro */
+        --ring: 318 27% 52%;
+        /* Focus ring mauve */
+
+        /* Estados semánticos - más brillantes en dark */
+        --destructive: 0 72% 50%;
+        /* Rojo más apagado */
+        --destructive-foreground: 0 0% 98%;
+
+        --warning: 38 82% 45%;
+        /* Naranja más apagado */
+        --warning-foreground: 0 0% 98%;
+
+        --success: 142 66% 32%;
+        /* Verde más apagado */
+        --success-foreground: 0 0% 98%;
+
+        --info: 199 79% 43%;
+        /* Azul más apagado */
+        --info-foreground: 0 0% 98%;
+
+        /* Charts en dark mode */
+        --chart-1: 318 27% 62%;
+        /* Mauve más brillante */
+        --chart-2: 319 30% 79%;
+        /* Mauve light medio */
+        --chart-3: 321 26% 56%;
+        /* Plum medio */
+        --chart-4: 0 0% 60%;
+        /* Gris medio */
+        --chart-5: 318 17% 72%;
+        /* Mauve pastel */
+    }
+
+    /* Utilidades específicas de Reconócete */
+    [data-theme="reconocete"] {
+        /* Gradientes de marca */
+        --gradient-mauve: linear-gradient(135deg, hsl(318 27% 52%), hsl(321 26% 46%));
+        --gradient-soft: linear-gradient(135deg, hsl(319 30% 69%), hsl(240 7% 97%));
+        --gradient-plum: linear-gradient(135deg, hsl(321 26% 46%), hsl(318 27% 52%));
+
+        /* Sombras personalizadas */
+        --shadow-mauve: 0 4px 14px 0 rgba(160, 110, 142, 0.25);
+        --shadow-plum: 0 4px 14px 0 rgba(143, 95, 125, 0.25);
+        --shadow-soft: 0 2px 8px 0 rgba(160, 110, 142, 0.15);
+    }
+}
+
+/* Clases de utilidad específicas del tema */
+@layer utilities {
+    [data-theme="reconocete"] {
+        .bg-gradient-mauve {
+            background: var(--gradient-mauve);
+        }
+
+        .bg-gradient-soft {
+            background: var(--gradient-soft);
+        }
+
+        .bg-gradient-plum {
+            background: var(--gradient-plum);
+        }
+
+        .shadow-mauve {
+            box-shadow: var(--shadow-mauve);
+        }
+
+        .shadow-plum {
+            box-shadow: var(--shadow-plum);
+        }
+
+        .shadow-soft {
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* Animaciones de marca */
+        .animate-shimmer-mauve {
+            animation: shimmer-mauve 2s linear infinite;
+        }
+    }
+}
+
+@keyframes shimmer-mauve {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+/* Ajustes tipográficos para Reconócete */
+[data-theme="reconocete"] {
+    font-family: 'Nunito', system-ui, sans-serif;
+
+    /* Configuración de tipografías específicas */
+    --font-family-heading: 'Merienda', system-ui, sans-serif;
+    --font-family-sans: 'Nunito', system-ui, sans-serif;
+
+    /* Peso de fuente para mejor legibilidad en el tema suave */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+}
+
+/* Headings específicos del tema */
+[data-theme="reconocete"] h1,
+[data-theme="reconocete"] h2,
+[data-theme="reconocete"] h3,
+[data-theme="reconocete"] h4,
+[data-theme="reconocete"] h5,
+[data-theme="reconocete"] h6,
+[data-theme="reconocete"] .font-heading {
+    font-family: var(--font-family-heading);
+}
+
+/* Print styles para Reconócete */
+@media print {
+    [data-theme="reconocete"] {
+        --primary: 0 0% 0%;
+        /* Negro para impresión */
+        --background: 0 0% 100%;
+        /* Fondo blanco */
+        --foreground: 0 0% 0%;
+        /* Texto negro */
+    }
+}

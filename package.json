@@ -1,24 +1,22 @@
 {
-  "name": "@arrachis/temple-ui",
+  "name": "temple-ui",
   "version": "0.1.0",
-  "description": "Biblioteca de componentes compartida para Arrachis",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist",
-    "README.md"
-  ],
+  "description": "Modern React component library with multi-theme support",
+  "private": true,
+  "packageManager": "pnpm@8.15.0",
   "scripts": {
-    "dev": "tsup --watch",
-    "build": "tsup",
-    "test": "vitest",
-    "lint": "eslint . --ext .ts,.tsx",
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
     "format": "prettier --write .",
-    "storybook": "storybook dev -p 6006",
-    "build:storybook": "storybook build",
-    "add:component": "npx shadcn@latest add",
-    "prepublishOnly": "npm run build"
+    "format:check": "prettier --check .",
+    "type-check": "turbo run type-check",
+    "test": "turbo run test",
+    "clean": "turbo run clean",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "turbo run build && changeset publish"
   },
   "repository": {
     "type": "git",
@@ -40,6 +38,7 @@
   },
   "devDependencies": {
     "@storybook/react-vite": "^10.1.10",
+    "@tailwindcss/postcss": "^4.1.18",
     "@types/node": "^20.0.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",

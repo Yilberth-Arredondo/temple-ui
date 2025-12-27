@@ -3,9 +3,10 @@
 // Utils
 export * from './lib/utils'
 
-// Future exports will go here:
-// export * from './components/primitives'
-// export * from './components/base'
-// export * from './components/composite'
-// export * from './hooks'
-// export * from './providers'
+// UI Components (shadcn/ui based)
+export * from './components/ui/button'
+export * from './components/ui/card'
+export * from './components/ui/input'
+
+// Hooks
+export * from './hooks/use-theme'

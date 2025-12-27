@@ -1,20 +1,13 @@
-// Especificación del hook useTheme
+import { useEffect, useState } from 'react';
 
-interface UseThemeReturn {
-  // Tema actual
+export interface UseThemeReturn {
   theme: string;
   setTheme: (theme: string) => void;
-
-  // Modo (light/dark)
   mode: 'light' | 'dark' | 'system';
   setMode: (mode: 'light' | 'dark' | 'system') => void;
-
-  // Utilidades
-  themes: string[]; // Lista de temas disponibles
-  systemMode: 'light' | 'dark'; // Modo del sistema
-  resolvedMode: 'light' | 'dark'; // Modo final aplicado
-
-  // Colores del tema actual
+  themes: string[];
+  systemMode: 'light' | 'dark';
+  resolvedMode: 'light' | 'dark';
   colors: {
     primary: string;
     secondary: string;
@@ -24,27 +17,76 @@ interface UseThemeReturn {
   };
 }
 
-// Uso
-function MyComponent() {
-  const { theme, setTheme, mode, setMode, colors } = useTheme();
+const THEMES = ['arrachis', 'reconocete'];
+const STORAGE_KEYS = {
+  THEME: 'temple-ui-theme',
+  MODE: 'temple-ui-mode',
+};
 
-  return (
-    <div>
-      <select
-        value={theme}
-        onChange={(e) => setTheme(e.target.value)}>
-        <option value='arrachis'>Arrachis</option>
-        <option value='tech'>Tech</option>
-        <option value='fashion'>Fashion</option>
-      </select>
+function getSystemMode(): 'light' | 'dark' {
+  if (typeof window === 'undefined') return 'light';
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
 
-      <button onClick={() => setMode(mode === 'light' ? 'dark' : 'light')}>
-        Toggle {mode} mode
-      </button>
+function getStoredValue(key: string, defaultValue: string): string {
+  if (typeof window === 'undefined') return defaultValue;
+  return localStorage.getItem(key) ?? defaultValue;
+}
 
-      <div style={{ backgroundColor: colors.primary }}>
-        Usando color primario del tema {theme}
-      </div>
-    </div>
+function setStoredValue(key: string, value: string): void {
+  if (typeof window === 'undefined') return;
+  localStorage.setItem(key, value);
+}
+
+export function useTheme(): UseThemeReturn {
+  const [theme, setThemeState] = useState(() => getStoredValue(STORAGE_KEYS.THEME, 'arrachis'));
+  const [mode, setModeState] = useState<'light' | 'dark' | 'system'>(() => 
+    getStoredValue(STORAGE_KEYS.MODE, 'system') as 'light' | 'dark' | 'system'
   );
+  const [systemMode, setSystemMode] = useState<'light' | 'dark'>(() => getSystemMode());
+
+  const resolvedMode = mode === 'system' ? systemMode : mode;
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = () => setSystemMode(getSystemMode());
+    
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.setAttribute('data-theme', theme);
+    root.classList.toggle('dark', resolvedMode === 'dark');
+  }, [theme, resolvedMode]);
+
+  const setTheme = (newTheme: string) => {
+    setThemeState(newTheme);
+    setStoredValue(STORAGE_KEYS.THEME, newTheme);
+  };
+
+  const setMode = (newMode: 'light' | 'dark' | 'system') => {
+    setModeState(newMode);
+    setStoredValue(STORAGE_KEYS.MODE, newMode);
+  };
+
+  const colors = {
+    primary: 'hsl(var(--primary))',
+    secondary: 'hsl(var(--secondary))',
+    accent: 'hsl(var(--accent))',
+    background: 'hsl(var(--background))',
+    foreground: 'hsl(var(--foreground))',
+  };
+
+  return {
+    theme,
+    setTheme,
+    mode,
+    setMode,
+    themes: THEMES,
+    systemMode,
+    resolvedMode,
+    colors,
+  };
 }

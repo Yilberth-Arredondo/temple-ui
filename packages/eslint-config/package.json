@@ -1,0 +1,25 @@
+{
+  "name": "@temple-ui/eslint-config",
+  "version": "0.1.0",
+  "description": "ESLint configuration for Temple UI",
+  "main": "./base.js",
+  "files": [
+    "*.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.33.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-import": "^2.29.0"
+  },
+  "peerDependencies": {
+    "eslint": "^8.0.0 || ^9.0.0",
+    "typescript": ">=4.0.0"
+  }
+}
